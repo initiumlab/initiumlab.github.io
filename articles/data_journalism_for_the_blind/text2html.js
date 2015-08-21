@@ -15,5 +15,5 @@ text = text.reduce(function(s1, s2){
   return s1+'\n'+s2;
 });
 
-fs.writeFileSync('./data_journalism_for_the_blind.html', text);
+fs.writeFileSync('./index.html', text);
 
