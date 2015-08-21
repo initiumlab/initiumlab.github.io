@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      可視化火了 盲人看什麼
+    </title>
+    <style>
+
+      body {
+        background-color: #EEE;
+        color: #111;
+      }
+
+      #content {
+        max-width: 30%;
+        margin: 0 auto;
+        font-family: "Hiragino Sans GB", sans-serif;
+        font-size: 18px;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      a:link {
+        color: inherit;
+        font-weight: bolder;
+      }
+
+      a:visited {
+        color: inherit
+      }
+
+      a:hover {
+        border-bottom: 2px solid #111;
+      }
+
+      .note {
+        vertical-align: super;
+        font-size: 70%;
+        text-indent: 0;
+      }
+
+      p {
+        margin: 0.5em auto;
+        line-height: 1.5;
+      }
+
+      #byline {
+        text-indent: 0;
+      }
+
+      img {
+        display: block;
+        margin: 1em auto;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+    <div id="content">
+
+      <h1>
+        可視化火了 盲人看什麼
+      </h1>
+      <p id="byline">
+        <a href="http://initiumlab.com">端Lab</a>・舒欣
+      </p>
+
+      <p>
+        中國有五百萬盲人<a class="note" href="#note1">[註1]</a>， 接近香港的總人口。
+        加上弱視，總數超過一千二百萬<a class="note" href="#note2">[註2]</a>。
+      </p>
+
+      <p>
+        盲人也可以用電腦，也會讀新聞。他們看不見，但是聽得到，他們上網用讀屏軟件，屏幕上的字詞，一個個去聽。
+      </p>
+
+      <p>
+        現在做新聞，流行信息圖，把大段文字轉化成圖表，方便讀者閱讀。
+        但正所謂君之蜜糖，彼之砒霜，普通人愛看的信息圖、可視化，對於盲人的讀屏軟件，則是巨大的障礙。
+      </p>
+
+      <p>
+        現在信息圖表日益流行，作爲數據新聞人，我們可以怎樣照顧盲人的信息需求呢？
+      </p>
+
+      <h2>
+        第一，瞭解盲人的閱讀方法
+      </h2>
+
+      <p>
+        普通人閱讀靠視覺，是「並行」的——你看一眼網頁界面，就知道菜單在哪、內容在哪、點擊什麼可以得到什麼。
+      </p>
+
+      <p>
+        聽覺是「串行」的，一個盲人如果要「聽完」一個網頁，讀屏軟件需要從第一個元素（按鈕、菜單選項等）讀起，然後一個一個元素讀下去。
+      </p>
+
+      <p>
+        讀者如果使用 OS X 或 iPhone，可以試用
+        「<a href="https://www.apple.com/hk/accessibility/osx/voiceover/">VoiceOver</a>」，
+        這是蘋果內置的讀屏軟件。
+        閉上眼睛，體驗一下盲人使用電子產品的方式，試試做一些簡單的事情：瀏覽網頁、發發微博，等等。
+      </p>
+
+      <p>
+        Windows 可以下載「<a href="http://www.zdsr.net/">爭渡讀屏</a>」，
+        Android 用戶可以試試內置的 <a href="https://play.google.com/store/apps/details?id=com.google.android.marvin.talkback&hl=zh-hant">Talkback</a>。
+      </p>
+
+      <h2>
+        第二，給圖像加上詳細的文字描述（Alt）
+      </h2>
+
+      <p>
+        讀屏軟件讀不了數據圖表，於是我們要爲視障讀者撰寫圖像的替代文字描述，具體而言，就是HTML中IMG元素的ALT屬性。
+        對於讀屏軟件的用戶，ALT的內容會被完整讀出。
+      </p>
+
+      <p>
+        替代說明應該儘可能簡短，但是能夠讓沒有看到圖的讀者都能理解內容。
+      </p>
+
+      <p>
+        比如，不要寫「中國GDP數據可視化」，而是寫「中國GDP近年快速增長，2000年爲1.2千億美元，2005年爲2.3千億，2010年爲5.9千億。」
+      </p>
+
+      <p>
+        替代說明有個額外的好處：利於搜索引擎處理。搜索引擎蒐集數據，是靠大量「爬蟲」程序，一個網頁一個網頁地檢索內容。爬蟲和盲人一樣，只能「看到」文字，無法閱讀圖像，所以，如果一篇文章的重要信息由圖像呈現，又沒有替代說明，則搜索引擎也看不到這些信息，從而讓用戶更難發現你的文章。
+      </p>
+
+      <h2>
+        第三，數據可聽化（Sonification）
+      </h2>
+
+      <p>
+        可聽化是與可視化相似的概念。我們做可視化，是因爲大多數人對數字沒有直覺，難以理解，但是我們對顏色、尺寸、方向有直覺——於是，將數字轉化爲圖像，能夠讓讀者更容易解讀數據。對於依賴聽力的盲人，我們則可以用「可聽化」。
+      </p>
+
+      <p>
+        聲音可以操縱的變量有：
+      </p>
+
+      <ul>
+        <li>響度，即大聲還是笑聲；</li>
+        <li>頻率，即高音還是低音；
+        <li>音色，即泛音的構成；</li>
+        <li>長度，即很長還是很短。</li>
+      </ul>
+
+      <p>
+        如果將數據與上述一個或幾個變量連接，就能構成一個「可聽化」作品。
+      </p>
+
+      <p>
+        一個例子是<a href="http://listen.hatnote.com/">Listen to Wikipedia</a>。它會實時監測維基百科的改動，然後將每次改動化爲聲音，改動越大，聲音頻率越高；音色代表改動類型——敲擊樂是增訂，絃樂是刪減。這個作品本身對盲人可能用處不大，但是這個技術思路可以用在新聞報道上。
+      </p>
+
+      <h2>
+        第四，數據可觸化
+      </h2>
+
+      <p>
+        盲人不止有聽覺，也有觸覺。如果我們將數據化作實際存在的物體，則盲人可以通過觸覺感知。在這個方向，探索的人比較少，偶爾見到零星的嘗試。
+      </p>
+
+      <p>
+        比如，西班牙記者Samuel Granados López<a href="http://cargocollective.com/samuelgranados/Lego-cartogram">
+        用樂高積木做過一個地圖</a>，用以標識美洲各國的移民流入、流出量：
+        <img src="http://payload230.cargocollective.com/1/14/463324/6918937/IMG_1014.jpg"
+             alt="一塊一人多高的底板，垂直放置。上面用樂高積木拼出了美洲各國，各個國家的突起程度並不相同，移民量越大的國家，越突出。" />
+      </p>
+
+      <h2>
+        展望：數據新聞無障礙
+      </h2>
+
+      <p>
+        過去，新聞的主要呈現方式是文字，輔以照片、插圖。對於盲人來說，有讀屏軟件也能獲取大多數信息。
+      </p>
+
+      <p>
+        現在，「數據新聞」興起，非數據的新聞報道也講求「視覺」「互動」。
+        在呈現方面，新聞人考慮的是報道網頁在手機上能不能看、用觸屏好不好控制，而非盲人用戶能否閱讀、色盲用戶會否迷惑、殘障用戶能否使用。
+      </p>
+
+      <p>
+        我們在呈現方式上發足狂奔之時，不應該忽略少數有特別需求的用戶。
+        有的用戶看不到屏幕、有的用戶用不了鼠標，他們仍然有信息需求，仍然可以是我們的讀者。
+        如果我們相信新聞機構不只是牟利的商業公司，而是承擔了社會責任，
+        那麼，我們在製作每條新聞報道的時候，不止要考慮如何讓大多數用戶迅速理解，也要考慮如何保證每個用戶對新聞內容能有最基本的了解。
+      </p>
+
+      <p>
+        從今天開始，請給你的信息圖加上alt吧！
+      </p>
+
+      <h2>
+        數據來源
+      </h2>
+
+      <p>
+        <a name="note1">[1]</a>
+        <a href="http://www.who.int/mediacentre/factsheets/fs230/en/">世界衛生組織</a>
+      </p>
+
+      <p>
+        <a name="note2">[2]</a>
+        <a href="http://www.zgmx.org.cn/html/default/4/NewsDefault-47618.html">中國盲人協會</a>
+      </p>
+
+      <p>
+        <a name="note3">[3]</a>
+        <a href="http://www.zglx.org.cn/longrenxiehui/xhhd/attache/2014-10/10/content_30459966.htm">中國聾人協會</a>
+      </p>
+
+    </div>
+
+  </body>
+
+</html>
