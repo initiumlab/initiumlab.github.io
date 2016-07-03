@@ -1,9 +1,3 @@
 
-This is just a domain place holder for <project.initiumlab.com>, so that projects under `initiumlab` GitHub handle will can be visited at `project.initiumlab.com/{project}` directly.
-
-## Deploy
-
-```
-./deploy.sh
-```
+This is just a domain place holder for <team.initiumlab.com>, so that projects under [initiumlab](https://github.com/initiumlab) GitHub organisation will can be visited at `team.initiumlab.com/{project}` directly.
 
